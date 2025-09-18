@@ -1,30 +1,41 @@
-const loadBtn = document.getElementById("loadBtn");
-const postsContainer = document.getElementsById("postsContainer");
+const loadBtn=document.getElementById("loadBtn");
+const postsContainer=document.getElementById("postsContainer");
 
 if(loadBtn){
-    loadBtn.addEventListener("click",fetchPosts);
+    loadBtn.addEventListener("click",fetchposts)
 }
 
-async function fetchPosts(){
-    postsContainer.Container.innerHTML = "<p>Loading...</p>";
+async function fetchposts(){
+    if(!postsContainer){
+        return;
+    }
+    postsContainer.textContent="There are no posts"
 
-    try { 
-        const response = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
-
-        if(!response.ok) {
-            throw new Error("Network response was not ok");
+    try{
+        const res=await fetch("https://jsonplaceholder.typicode.com/posts?_limit=5");
+        if(!res.ok){
+            throw new Error(`{response.Status}`);
         }
-        const posts = await response.json();
-    
-    posts.Container.innerHTML = "";
-    posts.forEach(post=> { 
-        const div = document.createElement("div");
-        div.classList.add("post");
-        div.innerHTML = `<h3>${post.title}</h3><p>${post.body}</p>`;
-        posts.container.appendChild(div);
-    });
-}
-catch(error) { 
-    postsContainer.innerHTML = `<p class="error"> Failed to load posts: ${error.message}</p>`;
-}
+        postsContainer.textContent="";
+
+        postsContainer.forEach((p)=>{
+            const div=document.getElementById("div");
+            div.className="post";
+
+            const h3=document.getElementById("h3");
+            h3.textContent=post.title;
+
+            const p=document.getElementById("p");
+            p.textContent=post.body;
+
+            div.append(h3);
+            div.append(p);
+
+            postsContainer.append(div)
+        });
+    }
+    catch(err){
+        postsContainer.textContent="Failed to load posts:`${err.message}`";
+        postsContainer.className="error"
+    }
 }

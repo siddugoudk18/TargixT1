@@ -1,10 +1,14 @@
-/* General Layout */
-body {
-  font-family: Arial, sans-serif;
+html, body {
   margin: 0;
   padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
 }
-
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 header, footer {
   background: #333;
   color: #fff;
@@ -23,6 +27,7 @@ nav a:hover {
 }
 
 main {
+  flex: 1; 
   padding: 2rem;
 }
 
@@ -36,8 +41,4 @@ main {
   margin-bottom: 1rem;
   border-radius: 5px;
   background: #f9f9f9;
-}
-.error {
-  color: red;
-  font-weight: bold;
 }
