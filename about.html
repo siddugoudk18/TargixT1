@@ -8,17 +8,31 @@
 </head>
 <body>
     <header>
-        <h1>About me</h1>
+        <h1>Contact Me</h1>
         <nav>
-            <a href="index.html">Index</a>
-            <a href="about.html">About</a>
+            <a href="index.html">Home</a>
+            <a href="about.html">Contact Me</a>
             <a href="posts.html">Posts</a>
         </nav>
     </header>
     <main>
-        <h2>About my website</h2>
-        <p>This page uses html and css</p>
-    </main>
+    <h2>Contact Me</h2>
+    <form>
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" required><br><br>
+
+      <label for="phone">Phone Number:</label><br>
+      <input type="tel" id="phone" name="phone" required><br><br>
+
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="4" required></textarea><br><br>
+
+      <button type="submit">Send</button>
+    </form>
+  </main>
     <footer>
         <p>&copy; 2025 my website</p>
     </footer>
